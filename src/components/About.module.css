@@ -1,0 +1,284 @@
+.about {
+    padding: var(--section-padding) 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 clamp(1rem, 4vw, 2rem);
+    position: relative;
+    z-index: 1;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.sectionTag {
+    display: inline-block;
+    padding: 0.5rem 1.25rem;
+    background: rgba(168, 85, 247, 0.1);
+    border: 1px solid rgba(168, 85, 247, 0.3);
+    border-radius: 50px;
+    color: var(--color-accent-purple);
+    font-size: 0.875rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+}
+
+.sectionTitle {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 700;
+    color: var(--color-text-primary);
+    font-family: var(--font-heading);
+}
+
+.sectionTitle span {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: start;
+}
+
+/* Text Content */
+.textContent {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.intro {
+    font-size: 1.125rem;
+    color: var(--color-text-primary);
+    line-height: 1.8;
+}
+
+.intro strong {
+    color: var(--color-accent-purple);
+}
+
+.description {
+    color: var(--color-text-secondary);
+    line-height: 1.8;
+}
+
+/* Highlights */
+.highlights {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.highlightCard {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    padding: 1.5rem;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.highlightCard:hover {
+    border-color: rgba(168, 85, 247, 0.3);
+    background: rgba(168, 85, 247, 0.05);
+    transform: translateY(-4px);
+}
+
+.highlightIcon {
+    font-size: 1.5rem;
+    color: var(--color-accent-purple);
+    margin-bottom: 0.75rem;
+}
+
+.highlightValue {
+    font-size: 2rem;
+    font-weight: 700;
+    font-family: var(--font-heading);
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.highlightLabel {
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+    margin-top: 0.25rem;
+}
+
+/* Skills Content */
+.skillsContent {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 24px;
+    padding: 2rem;
+}
+
+.skillsTitle {
+    font-size: 1.5rem;
+    font-weight: 600;
+    font-family: var(--font-heading);
+    margin-bottom: 1.5rem;
+    color: var(--color-text-primary);
+}
+
+.skillsList {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.skillItem {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.skillHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.skillName {
+    font-weight: 500;
+    color: var(--color-text-primary);
+}
+
+.skillLevel {
+    font-size: 0.875rem;
+    color: var(--color-accent-purple);
+    font-weight: 600;
+}
+
+.skillBar {
+    height: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.skillProgress {
+    height: 100%;
+    background: var(--gradient-primary);
+    border-radius: 10px;
+    position: relative;
+}
+
+.skillProgress::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+    0% {
+        transform: translateX(-100%);
+    }
+
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+/* Tech Tags */
+.techTags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.techTag {
+    padding: 0.5rem 1rem;
+    background: rgba(168, 85, 247, 0.1);
+    border: 1px solid rgba(168, 85, 247, 0.2);
+    border-radius: 8px;
+    font-size: 0.875rem;
+    color: var(--color-text-secondary);
+    transition: all 0.3s ease;
+}
+
+.techTag:hover {
+    background: var(--color-accent-purple);
+    border-color: var(--color-accent-purple);
+    color: white;
+}
+
+/* Background */
+.bgDecor {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.glowPurple {
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(168, 85, 247, 0.1) 0%, transparent 70%);
+    top: 20%;
+    right: -100px;
+    filter: blur(60px);
+}
+
+.glowCyan {
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(6, 182, 212, 0.1) 0%, transparent 70%);
+    bottom: 10%;
+    left: -50px;
+    filter: blur(60px);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .content {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+
+    .highlights {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .highlights {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .skillsContent {
+        padding: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .highlightCard {
+        padding: 1rem;
+    }
+
+    .highlightValue {
+        font-size: 1.5rem;
+    }
+}
