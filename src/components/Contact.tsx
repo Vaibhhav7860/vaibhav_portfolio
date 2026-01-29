@@ -47,13 +47,94 @@ export default function Contact() {
         subject: "",
         message: "",
     });
+    const [errors, setErrors] = useState<{ [key: string]: string }>({});
 
+    // Validation patterns
+    const patterns = {
+        name: /^[A-Za-z\s]+$/,
+        email: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
+        phone: /^[+]?[0-9\s-]{10,15}$/,
+    };
+
+    // Validate individual field
+    const validateField = (name: string, value: string): string => {
+        switch (name) {
+            case "name":
+                if (!value.trim()) return "Name is required";
+                if (value.length < 2) return "Name must be at least 2 characters";
+                if (value.length > 50) return "Name must be less than 50 characters";
+                if (!patterns.name.test(value)) return "Name can only contain letters and spaces";
+                return "";
+            case "email":
+                if (!value.trim()) return "Email is required";
+                if (!patterns.email.test(value)) return "Please enter a valid email address";
+                return "";
+            case "phone":
+                if (!value.trim()) return "Phone number is required";
+                if (!patterns.phone.test(value)) return "Please enter a valid phone number (10-15 digits)";
+                return "";
+            case "subject":
+                if (!value.trim()) return "Subject is required";
+                if (value.length < 3) return "Subject must be at least 3 characters";
+                if (value.length > 100) return "Subject must be less than 100 characters";
+                return "";
+            case "message":
+                if (!value.trim()) return "Message is required";
+                if (value.length < 10) return "Message must be at least 10 characters";
+                if (value.length > 1000) return "Message must be less than 1000 characters";
+                return "";
+            default:
+                return "";
+        }
+    };
+
+    // Handle input change with validation
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-        setFormData({ ...formData, [e.target.name]: e.target.value });
+        const { name, value } = e.target;
+
+        // For name field: prevent numbers and special characters
+        if (name === "name" && value !== "" && !/^[A-Za-z\s]*$/.test(value)) {
+            return; // Don't update if invalid character entered
+        }
+
+        // For phone field: only allow digits, +, spaces, and dashes
+        if (name === "phone" && value !== "" && !/^[+0-9\s-]*$/.test(value)) {
+            return; // Don't update if invalid character entered
+        }
+
+        setFormData({ ...formData, [name]: value });
+
+        // Clear error when user starts typing
+        if (errors[name]) {
+            setErrors({ ...errors, [name]: "" });
+        }
+    };
+
+    // Validate all fields before submit
+    const validateForm = (): boolean => {
+        const newErrors: { [key: string]: string } = {};
+        let isValid = true;
+
+        Object.keys(formData).forEach((key) => {
+            const error = validateField(key, formData[key as keyof typeof formData]);
+            if (error) {
+                newErrors[key] = error;
+                isValid = false;
+            }
+        });
+
+        setErrors(newErrors);
+        return isValid;
     };
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
+
+        // Validate form before submission
+        if (!validateForm()) {
+            return;
+        }
+
         setIsSubmitting(true);
 
         // EmailJS integration
@@ -199,9 +280,14 @@ export default function Contact() {
                                             value={formData.name}
                                             onChange={handleChange}
                                             required
+                                            minLength={2}
+                                            maxLength={50}
+                                            pattern="[A-Za-z\s]+"
+                                            title="Name can only contain letters and spaces"
                                             placeholder="John Doe"
-                                            className={styles.formInput}
+                                            className={`${styles.formInput} ${errors.name ? styles.inputError : ''}`}
                                         />
+                                        {errors.name && <span className={styles.errorText}>{errors.name}</span>}
                                     </div>
                                     <div className={styles.formGroup}>
                                         <label htmlFor="email" className={styles.formLabel}>
@@ -214,9 +300,12 @@ export default function Contact() {
                                             value={formData.email}
                                             onChange={handleChange}
                                             required
+                                            pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"
+                                            title="Please enter a valid email address"
                                             placeholder="john@example.com"
-                                            className={styles.formInput}
+                                            className={`${styles.formInput} ${errors.email ? styles.inputError : ''}`}
                                         />
+                                        {errors.email && <span className={styles.errorText}>{errors.email}</span>}
                                     </div>
                                 </div>
 
@@ -232,9 +321,13 @@ export default function Contact() {
                                             value={formData.phone}
                                             onChange={handleChange}
                                             required
+                                            minLength={10}
+                                            maxLength={15}
+                                            title="Please enter a valid phone number (10-15 digits)"
                                             placeholder="+91 XXXXX XXXXX"
-                                            className={styles.formInput}
+                                            className={`${styles.formInput} ${errors.phone ? styles.inputError : ''}`}
                                         />
+                                        {errors.phone && <span className={styles.errorText}>{errors.phone}</span>}
                                     </div>
                                     <div className={styles.formGroup}>
                                         <label htmlFor="subject" className={styles.formLabel}>
@@ -247,9 +340,12 @@ export default function Contact() {
                                             value={formData.subject}
                                             onChange={handleChange}
                                             required
+                                            minLength={3}
+                                            maxLength={100}
                                             placeholder="Project Inquiry"
-                                            className={styles.formInput}
+                                            className={`${styles.formInput} ${errors.subject ? styles.inputError : ''}`}
                                         />
+                                        {errors.subject && <span className={styles.errorText}>{errors.subject}</span>}
                                     </div>
                                 </div>
 
@@ -263,10 +359,13 @@ export default function Contact() {
                                         value={formData.message}
                                         onChange={handleChange}
                                         required
+                                        minLength={10}
+                                        maxLength={1000}
                                         placeholder="Tell me about your project..."
                                         rows={5}
-                                        className={styles.formTextarea}
+                                        className={`${styles.formTextarea} ${errors.message ? styles.inputError : ''}`}
                                     />
+                                    {errors.message && <span className={styles.errorText}>{errors.message}</span>}
                                 </div>
 
                                 <motion.button

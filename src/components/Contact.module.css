@@ -238,6 +238,24 @@
     resize: vertical;
 }
 
+/* Error States */
+.inputError {
+    border-color: #ef4444 !important;
+    box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.15) !important;
+}
+
+.inputError:focus {
+    border-color: #ef4444 !important;
+    box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.25) !important;
+}
+
+.errorText {
+    color: #ef4444;
+    font-size: 0.75rem;
+    margin-top: 0.375rem;
+    display: block;
+}
+
 .submitBtn {
     display: inline-flex;
     align-items: center;
