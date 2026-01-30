@@ -72,8 +72,9 @@ export default function About() {
                     animate={isInView ? { opacity: 1, y: 0 } : {}}
                     transition={{ duration: 0.6 }}
                 >
-                    <span className={styles.sectionTag}>About Me</span>
+                    <span className={styles.sectionTag} aria-hidden="true">About Me</span>
                     <h2 className={styles.sectionTitle}>
+                        <span className={styles.srOnly}>About Me - </span>
                         Passionate About Building <span>Scalable Solutions</span>
                     </h2>
                 </motion.div>
@@ -95,7 +96,7 @@ export default function About() {
 
                         <p className={styles.description}>
                             Throughout my career, I&apos;ve had the privilege of working with diverse startups
-                            and established companies, where I&apos;ve designed and implemented robust backend
+                            and established companies as a Backend Developer, where I&apos;ve designed and implemented robust backend
                             architectures, optimized database performance, and built RESTful APIs that
                             power modern applications.
                         </p>

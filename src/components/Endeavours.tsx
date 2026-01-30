@@ -27,7 +27,7 @@ const endeavours = [
         status: "Active",
         statusType: "ongoing",
         description:
-            "Actively developing and launching SaaS products leveraging my backend expertise. Building solutions that solve real-world problems using Python, modern architectures, and cloud technologies.",
+            "Actively developing and launching fullstack SaaS products leveraging my backend expertise. Building solutions that solve real-world problems using Python, modern architectures, and cloud technologies.",
         link: "#",
         highlights: ["SaaS Development", "MVP Building", "Product Launch", "User Feedback"],
     },

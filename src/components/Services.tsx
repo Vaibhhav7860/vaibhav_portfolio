@@ -74,8 +74,9 @@ export default function Services() {
                     animate={isInView ? { opacity: 1, y: 0 } : {}}
                     transition={{ duration: 0.6 }}
                 >
-                    <span className={styles.sectionTag}>Services</span>
+                    <span className={styles.sectionTag} aria-hidden="true">Services</span>
                     <h2 className={styles.sectionTitle}>
+                        <span className={styles.srOnly}>Services - </span>
                         What I <span>Offer</span>
                     </h2>
                     <p className={styles.sectionSubtitle}>
