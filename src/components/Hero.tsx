@@ -74,7 +74,8 @@ export default function Hero() {
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.4 }}
                         >
-                            Vaibhav <span className={styles.highlight}>Oberoi</span>
+                            <span>Vaibhav <span className={styles.highlight}>Oberoi</span></span>
+                            <span className={styles.srOnly}> - Senior Software Engineer | Python Developer</span>
                         </motion.h1>
 
                         <motion.div
@@ -82,6 +83,7 @@ export default function Hero() {
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.6 }}
+                            aria-hidden="true"
                         >
                             <span className={styles.rolePrefix}>Senior Software Engineer</span>
                             <span className={styles.separator}>|</span>
