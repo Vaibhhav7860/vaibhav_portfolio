@@ -29,7 +29,7 @@ const contactInfo = [
 ];
 
 const socialLinks = [
-    { icon: FaGithub, href: "https://github.com/vaibhavoberoi", label: "GitHub" },
+    { icon: FaGithub, href: "https://github.com/Vaibhhav7860", label: "GitHub" },
     { icon: FaLinkedinIn, href: "https://linkedin.com/in/vaibhhavoberoi786", label: "LinkedIn" },
     { icon: FaTwitter, href: "https://twitter.com/VaibhhavO20494", label: "Twitter" },
 ];

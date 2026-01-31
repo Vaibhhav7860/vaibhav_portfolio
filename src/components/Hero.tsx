@@ -12,10 +12,10 @@ import { HiArrowDown } from "react-icons/hi";
 import styles from "./Hero.module.css";
 
 const socialLinks = [
-    { icon: FaGithub, href: "https://github.com/vaibhavoberoi", label: "GitHub" },
+    { icon: FaGithub, href: "https://github.com/Vaibhhav7860", label: "GitHub" },
     {
         icon: FaLinkedinIn,
-        href: "https://linkedin.com/in/vaibhavoberoi",
+        href: "https://www.linkedin.com/in/vaibhhavoberoi786",
         label: "LinkedIn",
     },
     {
