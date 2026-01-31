@@ -11,7 +11,7 @@ import { HiMail, HiPhone, HiLocationMarker } from "react-icons/hi";
 import styles from "./Footer.module.css";
 
 const socialLinks = [
-    { icon: FaGithub, href: "https://github.com/vaibhavoberoi", label: "GitHub" },
+    { icon: FaGithub, href: "https://github.com/Vaibhhav7860", label: "GitHub" },
     {
         icon: FaLinkedinIn,
         href: "https://linkedin.com/in/vaibhhavoberoi786",
