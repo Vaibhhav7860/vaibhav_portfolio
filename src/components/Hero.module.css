@@ -464,8 +464,37 @@
 
     .floatingShape1,
     .floatingShape2,
-    .floatingShape3,
-    .codeCard {
+    .floatingShape3 {
         display: none;
+    }
+
+    /* Code Card Mobile Adjustments */
+    .codeCard {
+        position: relative;
+        bottom: auto;
+        left: auto;
+        width: 100%;
+        max-width: 280px;
+        margin: 1.5rem auto 0;
+        transform: none;
+    }
+
+    .codeCard:hover {
+        transform: none;
+    }
+
+    .codeCardBody pre {
+        font-size: 0.65rem;
+    }
+
+    .codeCardTitle {
+        font-size: 0.65rem;
+    }
+
+    .dotRed,
+    .dotYellow,
+    .dotGreen {
+        width: 8px;
+        height: 8px;
     }
 }

@@ -3,6 +3,8 @@
 import { motion, useInView } from "framer-motion";
 import { useRef, useEffect, useState } from "react";
 import { FaCode, FaServer, FaDatabase, FaCogs } from "react-icons/fa";
+import { HiExternalLink } from "react-icons/hi";
+import { SiDevdotto } from "react-icons/si";
 import styles from "./About.module.css";
 
 const skills = [
@@ -107,6 +109,35 @@ export default function About() {
                             on Gen AI and Agentic AI systems, combining my technical expertise with
                             business acumen.
                         </p>
+
+                        {/* Featured Article Card */}
+                        <motion.a
+                            href="https://dev.to/vaibhhav7860/how-i-build-scalable-backend-systems-using-python-34go"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className={styles.featuredCard}
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={isInView ? { opacity: 1, y: 0 } : {}}
+                            transition={{ duration: 0.5, delay: 0.35 }}
+                            whileHover={{ scale: 1.02, y: -4 }}
+                            aria-label="Read my featured article on DEV.to about building scalable backend systems"
+                        >
+                            <article className={styles.featuredContent}>
+                                <div className={styles.featuredBadge}>
+                                    <SiDevdotto className={styles.devtoIcon} />
+                                    <span>Featured on DEV.to</span>
+                                </div>
+                                <h4 className={styles.featuredTitle}>
+                                    How I Build Scalable Backend Systems Using Python
+                                </h4>
+                                <p className={styles.featuredTagline}>
+                                    🚀 From architecture patterns to deployment strategies — the blueprint behind systems serving millions.
+                                </p>
+                                <span className={styles.readMore}>
+                                    Read Article <HiExternalLink />
+                                </span>
+                            </article>
+                        </motion.a>
 
                         {/* Highlights */}
                         <div className={styles.highlights}>
