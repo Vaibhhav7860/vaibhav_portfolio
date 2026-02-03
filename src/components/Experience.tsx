@@ -10,12 +10,12 @@ const experiences = [
     {
         id: 1,
         role: "Software Development Engineer - 2",
-        company: "Ekyam.ai",
-        logo: "/logos/ekyam.jpg",
+        company: "Destm Technologies",
+        logo: "/logos/destm.png",
         location: "Remote",
         period: "Nov 2025 – Present",
         description:
-            "Architecting EKYAM Core V2 (Python FastAPI), building end-to-end integration pipelines to sync products, orders, and inventory between major retail systems like NetSuite and Shopify. Developing AI-ready ETL pipelines to standardize diverse retail data into Ekyam's canonical ontology for cross-system analytics.",
+            "Architecting an ecommerce product (Python FastAPI), building end-to-end integration pipelines to sync products, orders, and inventory between major retail systems like NetSuite and Shopify. Developing AI-ready ETL pipelines to standardize diverse retail data into Ekyam's canonical ontology for cross-system analytics.",
         technologies: ["Python", "FastAPI", "ETL", "AI/ML", "NetSuite", "Shopify"],
     },
     {
